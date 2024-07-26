@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routine 2: Back and Neck Pain Prevention - Evergreen Fitness</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #2e8b57;
+            padding: 10px 0;
+        }
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+        }
+        .exercise-button, .start-timer-button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.3em;
+            margin: 15px;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .exercise-button:hover, .start-timer-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        .exercise-button:active, .start-timer-button:active {
+            background-color: #388e3c;
+        }
+        .description {
+            font-size: 1.1em;
+            color: black;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: left;
+        }
+        .timer {
+            font-size: 2em;
+            color: #1e90ff;
+            margin: 20px;
+        }
+        .break-info {
+            font-size: 1.2em;
+            color: #ff4500;
+            margin: 20px auto;
+        }
+        footer {
+            background-color: #2e8b57;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+    <script>
+        function startTimer(duration, display) {
+            var timer = duration, seconds;
+            var interval = setInterval(function () {
+                seconds = parseInt(timer % 60, 10);
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                display.textContent = seconds;
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    display.textContent = "00";
+                }
+            }, 1000);
+        }
+
+        function startExerciseTimer(exerciseId, duration) {
+            var display = document.getElementById(exerciseId);
+            startTimer(duration, display);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="exercise.html">Exercise</a></li>
+                <li><a href="nutrition.html">Nutrition</a></li>
+                <li><a href="meditation.html">Meditation</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="content">
+            <h1>Routine 2: Exercises to Prevent Back and Neck Pain</h1>
+            <p class="description">This routine includes exercises designed to improve posture, strengthen neck and back muscles, and alleviate pain.</p>
+
+            <h2>Exercise 1: Chin Tucks</h2>
+            <p class="description">Sit or stand with your back straight. Slowly tuck your chin toward your chest, hold for a few seconds, and then return to the starting position. Repeat.</p>
+            <button class="start-timer-button" onclick="startExerciseTimer('timer1', 45)">Start Timer</button>
+            <div id="timer1" class="timer">45</div>
+
+            <p class="break-info">Take a 20-second break before starting the next exercise.</p>
+            <button class="start-timer-button" onclick="startExerciseTimer('break1', 20)">Start Break Timer</button>
+            <div id="break1" class="timer">20</div>
+
+            <h2>Exercise 2: Neck Rotation</h2>
+            <p class="description">Sit or stand with your back straight. Slowly turn your head to one side, hold for a few seconds, and then return to the starting position. Repeat on the other side.</p>
+            <button class="start-timer-button" onclick="startExerciseTimer('timer2', 45)">Start Timer</button>
+            <div id="timer2" class="timer">45</div>
+
+            <p class="break-info">Take a 20-second break before starting the next exercise.</p>
+            <button class="start-timer-button" onclick="startExerciseTimer('break2', 20)">Start Break Timer</button>
+            <div id="break2" class="timer">20</div>
+
+            <h2>Exercise 3: Child's Pose</h2>
+            <p class="description">Kneel on the floor, sit back on your heels, and lean forward to place your forehead on the ground. Stretch your arms out in front of you and hold this position.</p>
+            <button class="start-timer-button" onclick="startExerciseTimer('timer3', 45)">Start Timer</button>
+            <div id="timer3" class="timer">45</div>
+
+            <p class="break-info">Take a 20-second break before starting the next exercise.</p>
+            <button class="start-timer-button" onclick="startExerciseTimer('break3', 20)">Start Break Timer</button>
+            <div id="break3" class="timer">20</div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Evergreen Fitness. All rights reserved.</p>
+    </footer>
+</body>
+</html>

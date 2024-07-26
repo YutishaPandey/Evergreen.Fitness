@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seated Leg Lifts - Evergreen Fitness</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #2e8b57;
+            padding: 10px 0;
+        }
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+        }
+        .button {
+            background-color: #2e8b57;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #1e6b40;
+        }
+        #timer {
+            font-size: 1.5em;
+            margin: 20px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let timerDisplay = document.getElementById('timer');
+            let startButton = document.getElementById('start-timer');
+            let timerDuration = 45; // 45 seconds
+            let breakDuration = 20; // 20 seconds
+
+            let interval;
+            let isBreak = false;
+
+            function startTimer(duration, display) {
+                let timer = duration, seconds;
+                interval = setInterval(function () {
+                    seconds = parseInt(timer % 60, 10);
+                    seconds = seconds < 10 ? '0' + seconds : seconds;
+                    display.textContent = 'Time Left: ' + seconds;
+
+                    if (--timer < 0) {
+                        timer = duration;
+                        clearInterval(interval);
+                        if (isBreak) {
+                            isBreak = false;
+                        } else {
+                            isBreak = true;
+                            display.textContent = 'Break Time!';
+                            startTimer(breakDuration, display);
+                        }
+                    }
+                }, 1000);
+            }
+
+            startButton.addEventListener('click', function () {
+                startTimer(timerDuration, timerDisplay);
+                startButton.style.display = 'none';
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="exercise.html">Exercise</a></li>
+                <li><a href="nutrition.html">Nutrition</a></li>
+                <li><a href="meditation.html">Meditation</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Seated Leg Lifts</h1>
+        <p><strong>Description:</strong><br>
+        Start Position: Sit on the edge of a chair with your back straight and hands resting on your thighs.<br>
+        Lift Leg: Slowly extend your right leg out straight, keeping your foot flexed. Hold for a few seconds.<br>
+        Lower Leg: Gently lower your leg back down. Repeat with the left leg.</p>
+        <p><strong>Benefits:</strong><br>
+        Strengthens Legs: Builds strength in the thigh and hip muscles.<br>
+        Improves Circulation: Helps to boost blood flow in the legs.<br>
+        Enhances Balance: Supports overall balance and stability.</p>
+        <div id="timer">Time Left: 45</div>
+        <button id="start-timer" class="button">Start Timer</button>
+    </main>
+    <footer>
+        <p>&copy; 2024 Evergreen Fitness. All rights reserved.</p>
+    </footer>
+</body>
+</html>

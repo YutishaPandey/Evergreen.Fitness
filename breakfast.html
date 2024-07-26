@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakfast - Evergreen Fitness</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #2e8b57;
+            padding: 10px 0;
+        }
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+        }
+        .nutrition-button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.3em;
+            margin: 15px;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .nutrition-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        .nutrition-button:active {
+            background-color: #388e3c;
+        }
+        .description {
+            font-size: 1.2em;
+            color: black;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: left;
+        }
+        footer {
+            background-color: #2e8b57;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="exercise.html">Exercise</a></li>
+                <li><a href="nutrition.html">Nutrition</a></li>
+                <li><a href="meditation.html">Meditation</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="content">
+            <h1>Breakfast Options</h1>
+            <p>Select a breakfast option to learn more about its benefits and nutritional value.</p>
+
+            <button class="nutrition-button" onclick="location.href='oatmeal.html'">Oatmeal with Berries and Nuts</button>
+            <button class="nutrition-button" onclick="location.href='yogurt.html'">Greek Yogurt</button>
+            <button class="nutrition-button" onclick="location.href='omelette.html'">Veggie Omelette</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Evergreen Fitness. All rights reserved.</p>
+    </footer>
+</body>
+</html>

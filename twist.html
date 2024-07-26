@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seated Twist - Evergreen Fitness</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #2e8b57;
+            padding: 10px 0;
+        }
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+        }
+        .button {
+            background-color: #2e8b57;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #1e6b40;
+        }
+        #timer {
+            font-size: 1.5em;
+            margin: 20px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let timerDisplay = document.getElementById('timer');
+            let startButton = document.getElementById('start-timer');
+            let timerDuration = 45; // 45 seconds
+            let breakDuration = 20; // 20 seconds
+
+            let interval;
+            let isBreak = false;
+
+            function startTimer(duration, display) {
+                let timer = duration, seconds;
+                interval = setInterval(function () {
+                    seconds = parseInt(timer % 60, 10);
+                    seconds = seconds < 10 ? '0' + seconds : seconds;
+                    display.textContent = 'Time Left: ' + seconds;
+
+                    if (--timer < 0) {
+                        timer = duration;
+                        clearInterval(interval);
+                        if (isBreak) {
+                            isBreak = false;
+                        } else {
+                            isBreak = true;
+                            display.textContent = 'Break Time!';
+                            startTimer(breakDuration, display);
+                        }
+                    }
+                }, 1000);
+            }
+
+            startButton.addEventListener('click', function () {
+                startTimer(timerDuration, timerDisplay);
+                startButton.style.display = 'none';
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="exercise.html">Exercise</a></li>
+                <li><a href="nutrition.html">Nutrition</a></li>
+                <li><a href="meditation.html">Meditation</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Seated Twist</h1>
+        <p><strong>Description:</strong><br>
+        Start Position: Sit on the edge of a chair with your feet flat on the floor and your back straight.<br>
+        Twist: Place your right hand on the back of the chair and gently twist your torso to the right, looking over your right shoulder.<br>
+        Hold: Hold the twist for 5 seconds, then return to the center.<br>
+        Switch Sides: Repeat the twist on the left side.</p>
+        <p><strong>Benefits:</strong><br>
+        Improves Spine Flexibility: Enhances flexibility in the spine and upper back.<br>
+        Aids Digestion: Stimulates digestive organs and helps with digestion.<br>
+        Increases Mobility: Helps maintain and improve range of motion.</p>
+        <div id="timer">Time Left: 45</div>
+        <button id="start-timer" class="button">Start Timer</button>
+    </main>
+    <footer>
+        <p>&copy; 2024 Evergreen Fitness. All rights reserved.</p>
+    </footer>
+</body>
+</html>
